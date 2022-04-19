@@ -123,28 +123,15 @@ public class Main {
                     int a = Integer.parseInt(num1);
                     int b = Integer.parseInt(num2);
 
-                    if ((a <= 10 && a >= 1) || (b <= 10 && b >= 1)) {
+                    if ((a <= 10 && a >= 1) && (b <= 10 && b >= 1)) {
 
-                        switch (oper) {
-                            case ("+"):
-                                result = a + b;
-                                break;
-                            case ("-"):
-                                result = a - b;
-                                break;
-
-                            case ("*"):
-                                result = a * b;
-                                break;
-                            case ("/"):
-
-                                result = a / b;
-                                break;
-
-
-                            default:
-                                throw new IllegalArgumentException("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
-                        }
+                        result = switch (oper) {
+                            case ("+") -> a + b;
+                            case ("-") -> a - b;
+                            case ("*") -> a * b;
+                            case ("/") -> a / b;
+                            default -> throw new IllegalArgumentException("throws Exception //т.к. формат математической операции не удовлетворяет заданию - два операнда и один оператор (+, -, /, *)");
+                        };
                         String r1 = Integer.toString(result);
                         System.out.println(r1);
                     } else {
@@ -156,8 +143,8 @@ public class Main {
                 }
 
 
-            } catch (Exception e) {
-                System.out.println ("throws Exception //т.к. строка не удовлетворяет заданию ");
+            } catch (Exception e ) {
+                System.out.println("throws Exception //т.к. строка не удовлетворяет заданию ");
             }
         }
 
